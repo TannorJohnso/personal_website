@@ -3,9 +3,9 @@ import './styles.css';
 
 const Header = () => {
   return (
-    <div class="header">
-      <text class="header-name">Tannor Johnson</text>
-      <div class="category-options">
+    <div className="header">
+      <p className="header-name">Tannor Johnson</p>
+      <div className="category-options">
         <ul>
           <a href="#about">About</a>
         </ul>

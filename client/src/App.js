@@ -6,7 +6,7 @@ import './styles.css';
 
 const App = () => {
   return (
-    <div class="app">
+    <div className="app">
       <img src={backgroundImage} className="background-img" />
       <Header />
       <Page />

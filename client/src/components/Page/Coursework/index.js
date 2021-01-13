@@ -3,7 +3,7 @@ import './styles.css';
 
 const Coursework = () => {
   return (
-    <div id="coursework" class="coursework section">
+    <div id="coursework" className="coursework section">
       <h1>Coursework</h1>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices
       lobortis consequat. Nulla feugiat feugiat leo non lobortis. Aliquam

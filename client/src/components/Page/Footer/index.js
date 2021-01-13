@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import MyEmail from './email';
+import { renderEmail } from 'react-html-email';
+import axios from 'axios';
 import './styles.css';
 
 const Footer = () => {
@@ -7,24 +10,46 @@ const Footer = () => {
   const [reason, setReason] = useState('');
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    callBackendAPI()
-      .then((res) => setData(res.express))
+  // useEffect(() => {
+  //   callBackendAPI()
+  //     .then((res) => setData(res.express))
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+  // const callBackendAPI = async () => {
+  //   const response = await fetch('/express_backend');
+  //   const body = await response.json();
+
+  //   if (response.status !== 200) {
+  //     throw Error(body.message);
+  //   }
+  //   return body;
+  // };
+
+  const handleSubmit = (event) => {
+    const messageHtml = renderEmail(
+      <MyEmail className={name}>{reason}</MyEmail>
+    );
+
+    axios({
+      method: 'POST',
+      url: 'http://localhost:5000/send',
+      params: {
+        name: name,
+        email: email,
+        messageHtml: messageHtml,
+      },
+    })
+      .then((response) => {
+        alert('.then statment');
+        if (response.data.msg === 'success') {
+          alert('Email sent, awesome!');
+          this.resetForm();
+        } else if (response.data.msg === 'fail') {
+          alert('Oops, something went wrong. Try again');
+        }
+      })
       .catch((err) => console.log(err));
-  }, []);
-
-  const callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-    return body;
-  };
-
-  const submitForm = () => {
-    alert(name + email + reason);
   };
 
   return (
@@ -33,7 +58,7 @@ const Footer = () => {
       <br />
       Contact Me
       {console.log(process.env)}
-      <form onSubmit={submitForm}>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <label>
           Name:{' '}
           <input
