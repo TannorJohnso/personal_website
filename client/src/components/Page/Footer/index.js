@@ -1,10 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 const Footer = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [reason, setReason] = useState('');
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    callBackendAPI()
+      .then((res) => setData(res.express))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+    return body;
+  };
 
   const submitForm = () => {
     alert(name + email + reason);
@@ -12,6 +29,8 @@ const Footer = () => {
 
   return (
     <div className="footer">
+      {data}
+      <br />
       Contact Me
       {console.log(process.env)}
       <form onSubmit={submitForm}>
