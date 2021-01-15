@@ -1,0 +1,30 @@
+.arrowImg {
+  height: 100%;
+  width: 100%;
+}
+
+.downArrowButton {
+  height: 15%;
+  width: 12%;
+  overflow: hidden;
+  background-color: transparent;
+  margin: 0px;
+  position: absolute;
+  bottom: 0px;
+  right: 5%;
+}
+
+.initial_page {
+  width: 100%;
+  height: 100vh;
+  background-color: lightblue;
+  scroll-behavior: smooth;
+}
+
+.initPageName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
