@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+.frisbee {
+  height: 100px;
+  width: 100px;
+}
+
 .downArrowButton {
   height: 15%;
   width: 12%;

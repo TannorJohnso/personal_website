@@ -11,7 +11,11 @@ const App = () => {
     <div className="app">
       <InitialPage />
       <div className="img_container">
-        <img src={backgroundImage} className="background-img" />
+        <img
+          src={backgroundImage}
+          className="background-img"
+          alt="backgroundImage"
+        />
       </div>
       <div>
         <Header />
