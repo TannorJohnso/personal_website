@@ -25,7 +25,7 @@ const InitialPage = () => {
           <h2>Hello, I'm</h2>
           <h1>Tannor Johnson</h1>
           <p>I'm a Web Developer.</p>
-          <svg viewBox="0 0 100 100" class="svgBox">
+          <svg viewBox="0 0 100 100" height="66%" width="66%" class="svgBox">
             <path
               class="path"
               fill="white"
