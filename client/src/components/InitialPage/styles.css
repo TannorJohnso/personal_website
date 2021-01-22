@@ -6,6 +6,8 @@
 .frisbee {
   height: 100px;
   width: 100px;
+  position: absolute;
+  top: 0px;
 }
 
 .downArrowButton {
@@ -32,4 +34,26 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
+  position: relative;
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  fill: transparent;
+  animation: dash 15s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svgBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: tomato; */
 }
