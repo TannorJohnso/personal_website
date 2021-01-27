@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import arrowDown from '../../assets/downArrow.png';
 import frisbee from '../../assets/frisbee.png';
 import { Animate } from 'react-simple-animate';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, config } from 'react-spring';
 import { Spring } from 'react-spring/renderprops';
 
 import './styles.css';
 
 const InitialPage = () => {
   const [play, setPlay] = useState(false);
+
+  const springProps = useSpring({ x: 0, from: { x: 100 } });
 
   useEffect(() => {
     setPlay(!play);
@@ -25,15 +27,39 @@ const InitialPage = () => {
           <h2>Hello, I'm</h2>
           <h1>Tannor Johnson</h1>
           <p>I'm a Web Developer.</p>
-          <svg viewBox="0 0 100 100" height="66%" width="66%" class="svgBox">
+          <animated.svg
+            delay={1000}
+            config={{ duration: 3000 }}
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="black"
+            strokeDasharray={100}
+            strokeDashoffset={springProps.x}
+          >
             <path
-              class="path"
-              fill="white"
+              // class="path"
+              pathLength="100"
+              fill="transparent"
               stroke="black"
               stroke-width="2"
-              d="M 75,50 v 25 h -50 v -50 h 50 Z"
+              d="M 75,50 v 25 h -50 v -50 h 50 v 25 h 26 v 50"
             />
-          </svg>
+          </animated.svg>
+          {/* <animated.svg
+            viewBox="0 0 100 100"
+            height="95%"
+            width="83%"
+            class="svgBox"
+            strokeDashoffset={values.x}
+          >
+            <path
+              // class="path"
+              fill="transparent"
+              stroke="black"
+              stroke-width="2"
+              d="M 75,50 v 25 h -50 v -50 h 50 v 25 h 26 v 50"
+            />
+          </animated.svg> */}
         </div>
       </Animate>
       <button
