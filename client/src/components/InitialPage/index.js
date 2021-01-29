@@ -10,7 +10,11 @@ import './styles.css';
 const InitialPage = () => {
   const [play, setPlay] = useState(false);
 
-  const springProps = useSpring({ x: 0, from: { x: 100 } });
+  const springProps = useSpring({
+    config: { duration: 2500 },
+    x: 0,
+    from: { x: 100 },
+  });
 
   useEffect(() => {
     setPlay(!play);
